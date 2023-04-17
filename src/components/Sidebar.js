@@ -13,7 +13,7 @@ import {
   Note,
   Person,
   Phone,
-  Start
+  Star
 } from "@mui/icons-material";
 
 const Sidebar = () => {
@@ -25,7 +25,7 @@ const Sidebar = () => {
       Compose
     </Button>
     <SidebarOption Icon={Inbox} title='Inbox' number={42} selected={true}/>
-    <SidebarOption Icon={Start} title='Starred' number={42}/>
+    <SidebarOption Icon={Star} title='Starred' number={42}/>
     <SidebarOption Icon={AccessTime} title='Snoozed' number={42}/>
     <SidebarOption Icon={LabelImportant} title='Important' number={42}/>
     <SidebarOption Icon={NearMe} title='Sent' number={42}/>
