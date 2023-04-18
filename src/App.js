@@ -2,16 +2,18 @@ import React from 'react';
 import './App.css';
 import Header from "./components/Header";
 import Sidebar from "./components/Sidebar";
-import {Outlet} from "react-router-dom";
+import SendMail from "./components/SendMail";
+import { Outlet } from "react-router-dom";
 
 function App() {
   return (
     <div className="app">
-      <Header/>
+      <Header />
       <div className="app__body">
-        <Sidebar/>
-        <Outlet/>
+        <Sidebar />
+        <Outlet />
       </div>
+      <SendMail />
     </div>
   );
 }
