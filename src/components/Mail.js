@@ -1,78 +1,81 @@
 import React from "react";
 import "./Mail.css";
-import { IconButton } from "@mui/material";
-import { useNavigate } from "react-router-dom";
+import {IconButton} from "@mui/material";
+import {useNavigate} from "react-router-dom";
 import {
-  MoveToInboxOutlined,
   ArrowBackOutlined,
-  Error,
+  CheckCircle,
   Delete,
   Email,
-  WatchLater,
-  CheckCircle,
+  Error,
+  ExitToApp,
   LabelImportant,
   MoreVert,
-  UnfoldMore,
-  ExitToApp,
+  MoveToInboxOutlined,
   Print,
+  UnfoldMore,
+  WatchLater,
 } from "@mui/icons-material";
+import {useSelector} from "react-redux";
+import {selectOpenMail} from "../features/mailSlice";
 
 const Mail = () => {
   const navigate = useNavigate();
+  const {title, subject, description, time} = useSelector(selectOpenMail)
 
   return (
     <div className="mail">
       <div className="mail__tools">
         <div className="mail__toolsLeft">
           <IconButton onClick={() => navigate("/")}>
-            <ArrowBackOutlined />
+            <ArrowBackOutlined/>
           </IconButton>
           <IconButton>
-            <MoveToInboxOutlined />
+            <MoveToInboxOutlined/>
           </IconButton>
           <IconButton>
-            <Error />
+            <Error/>
           </IconButton>
           <IconButton>
-            <Delete />
+            <Delete/>
           </IconButton>
           <IconButton>
-            <Email />
+            <Email/>
           </IconButton>
           <IconButton>
-            <WatchLater />
+            <WatchLater/>
           </IconButton>
           <IconButton>
-            <CheckCircle />
+            <CheckCircle/>
           </IconButton>
           <IconButton>
-            <LabelImportant />
+            <LabelImportant/>
           </IconButton>
           <IconButton>
-            <MoreVert />
+            <MoreVert/>
           </IconButton>
         </div>
         <div className="mail__toolsRight">
           <IconButton>
-            <UnfoldMore />
+            <UnfoldMore/>
           </IconButton>
           <IconButton>
-            <Print />
+            <Print/>
           </IconButton>
           <IconButton>
-            <ExitToApp />
+            <ExitToApp/>
           </IconButton>
         </div>
       </div>
       <div className="mail__body">
         <div className="mail__bodyHeader">
-          <h2>Subject</h2>
-          <LabelImportant className="mail__important" />
-          <p>Title</p>
-          <p className="mail__time">10pm</p>
+          <h2>{subject}</h2>
+          <LabelImportant className="mail__important"/>
+          <p>{title}</p>
+          <p className="mail__time">{time}</p>
         </div>
         <div className="mail__message">
-          <p>This is message</p>
+          <p>{description}</p>
         </div>
       </div>
     </div>
