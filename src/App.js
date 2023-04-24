@@ -8,7 +8,7 @@ import SendMail from "./components/SendMail";
 import {Outlet} from "react-router-dom";
 import {useDispatch, useSelector} from "react-redux";
 import {selectIsSendMessageOpen} from "./features/mailSlice";
-import {login, selectUser} from "./features/userSlice";
+import {login, logout, selectUser} from "./features/userSlice";
 import {auth} from "./firebase";
 
 function App() {
@@ -25,7 +25,7 @@ function App() {
           photoUrl: user.photoURL
         }))
       } else {
-
+        dispatch(logout())
       }
     })
   }, []);
